@@ -1,11 +1,12 @@
 public class Main {
     public static void main(String[] args) {
         // Hana (working/task)
-        Saying saying1 = new Saying("E kaupē aku nō i ka hoe a kō mai", "Put forward the paddle and draw it back", "Go on with the task that is started and finish it.");
-        Saying saying2 = new Saying("Hoʻokahi nō lā o ka malihini", "A stranger only for a day", "After the first day as a guest, one must help with the work.");
-        Saying saying3 = new Saying("Komo mai kāu māpuna hoe", "Put in your dip of the paddle", "Pitch in.");
-        Saying saying4 = new Saying("Kūlia i ka nuʻu", "Strive to reach the highest", "Strive to do your best.");
-        Saying saying5 = new Saying("Ma ka hana ka ʻike", "In working one learns", "Knowledge can be acquired by doing.");
+        Saying saying1 = new Saying("E kaupē aku nō i ka hoe a kō mai", "","Put forward the paddle and draw it back", "Go on with the task that is started and finish it.");
+        Saying saying2 = new Saying("Hoʻokahi nō lā o ka malihini", "","A stranger only for a day", "After the first day as a guest, one must help with the work.");
+        Saying saying3 = new Saying("Komo mai kāu māpuna hoe", "","Put in your dip of the paddle", "Pitch in.");
+        Saying saying4 = new Saying("Kūlia i ka nuʻu", "","Strive to reach the highest", "Strive to do your best.");
+        Saying saying5 = new Saying("Ma ka hana ka ʻike", "","In working one learns", "Knowledge can be acquired by doing.");
+        /*
         Saying saying6 = new Saying("Mai makaʻu i ka hana, makaʻu i ka moloā", "Don’t fear work, fear laziness", "Don’t be lazy.");
         Saying saying7 = new Saying("Na ka ʻeleu miki", "(The prize) goes to the quick one", "Similar to the saying, 'The early bird gets the worm.'");
         Saying saying8 = new Saying("Pūpūkahi i holomua", "Unite in order to progress", "Unity brings success.");
@@ -38,6 +39,70 @@ public class Main {
         Saying saying29 = new Saying("Pau Pele, pau manō", "[May I be] devoured by Pele, [may I be] devoured by a shark", "An oath, meaning 'If I fail...'. Similar to 'Cross my heart, hope to die.'");
         Saying saying30 = new Saying("Pūʻali ʻo Kahaunui iā Kahauiki", "Big-hau-tree has a groove worn into it by Little-hau-tree", "Don't underestimate the powers of the small guy.");
         Saying saying31 = new Saying("ʻIke i ke au nui me ke au iki", "Knows the big currents and the little currents", "Is very well versed.");
+*/
+        Tree tree = new Tree();
 
+        tree.Insert(saying1);
+        tree.Insert(saying2);
+        tree.Insert(saying3);
+        tree.Insert(saying4);
+        tree.Insert(saying5);
+
+        /*
+        tree.insert(saying6);
+        tree.insert(saying7);
+        tree.insert(saying8);
+        tree.insert(saying9);
+        tree.insert(saying10);
+        tree.insert(saying11);
+        tree.insert(saying12);
+        tree.insert(saying13);
+        tree.insert(saying14);
+        tree.insert(saying15);
+        tree.insert(saying16);
+        tree.insert(saying17);
+        tree.insert(saying18);
+        tree.insert(saying19);
+        tree.insert(saying20);
+        tree.insert(saying21);
+        tree.insert(saying22);
+        tree.insert(saying23);
+        tree.insert(saying24);
+        tree.insert(saying25);
+        tree.insert(saying26);
+        tree.insert(saying27);
+        tree.insert(saying28);
+        tree.insert(saying29);
+        tree.insert(saying30);
+        tree.insert(saying31);
+        */
+
+        tree.printTree();
+
+        // Test Member()
+        System.out.println(tree.Member(new Saying("E kaupē aku nō i ka hoe a kō mai")));
+        System.out.println(tree.Member(new Saying("1E kaupē aku nō i ka hoe a kō mai")));
+        System.out.println(tree.Member(new Saying("")));
+        System.out.println(tree.Member(new Saying("Hoʻokahi nō lā o ka malihini")));
+
+        // Test First()
+        System.out.println(tree.First());
+
+        // Test Last()
+        System.out.println(tree.Last());
+
+        // Test Predecessor()
+        System.out.println(tree.Predecessor(new Saying("E kaupē aku nō i ka hoe a kō mai")));
+        System.out.println(tree.Predecessor(new Saying("Hoʻokahi nō lā o ka malihini")));
+
+        // Test Successor()
+        System.out.println(tree.Successor(new Saying("E kaupē aku nō i ka hoe a kō mai")));
+        System.out.println(tree.Successor(new Saying("Hoʻokahi nō lā o ka malihini")));
+
+        // Test Insert
+        Saying saying33 = new Saying("ʻIke i ke au nui me ke au iki", "","Knows the big currents and the little currents", "Is very well versed.");
+        tree.Insert(saying33);
+        tree.printTree();
     }
+
 }
