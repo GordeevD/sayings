@@ -8,6 +8,7 @@ public class Tree {
     private Node parent;
     private int height;
 
+    // Implemented by Jarren
     private void leftRoation(Node x){
         Node y = x.right;
         x.right = y.left;
@@ -28,6 +29,7 @@ public class Tree {
         x.parent = y;
     }
     
+    // Implemented by Jarren
     private void rightRotation(Node x) {
         Node y = x.left;
         x.left = y.right;
@@ -205,6 +207,7 @@ public class Tree {
         return successor != null ? successor.key : null;
     }
 
+    // Implemented by Jarren 
     public void inOrderHelp(Node node, ArrayList<Saying> sayings){
         if(node == null){
             return;
@@ -214,18 +217,21 @@ public class Tree {
         inOrderHelp(node.right, sayings);
     }
 
+    // Implemented by Jarren
     public ArrayList<Saying> inOrder(Node node){
         ArrayList<Saying> sayings = new ArrayList<Saying>();
         inOrderHelp(node, sayings);
         return sayings;
     }
 
+    // Implemented by Jarren 
     public ArrayList<Saying> MeHua(String word) {
         ArrayList<Saying> sayings = inOrder(this.root);
         sayings.removeIf(s -> !s.getSaying().contains(word));
         return sayings;
     }
     
+    // Implemented by Jarren
     public ArrayList<Saying> WithWord(String word){
         ArrayList<Saying> sayings = inOrder(this.root);
         sayings.removeIf(s -> !s.getEnglishTranslation().contains(word));
