@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+
 public class Tree {
+    
     // will be using a red-black tree
-    private Node root;
+    public Node root;
     private Node maxNode; // Reference to the maximum node
     private Node parent;
     private int height;
@@ -201,4 +204,26 @@ public class Tree {
         }
         return successor != null ? successor.key : null;
     }
+
+    public void inOrderHelp(Node node, ArrayList<String> sayings){
+        if(node == null){
+            return;
+        }
+        inOrderHelp(node.left, sayings);
+        sayings.add(node.key.getSaying());
+        inOrderHelp(node.right, sayings);
+    }
+
+    public ArrayList<String> inOrder(Node node){
+        ArrayList<String> sayings = new ArrayList<String>();
+        inOrderHelp(node, sayings);
+        return sayings;
+    }
+
+    public ArrayList<String> meHua(String saying) {
+        ArrayList<String> sayings = inOrder(this.root);
+        sayings.removeIf(s -> !s.contains(saying));
+        return sayings;
+    }
+    
 }
