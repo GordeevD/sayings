@@ -5,8 +5,6 @@ public class Tree {
     // will be using a red-black tree
     public Node root;
     private Node maxNode; // Reference to the maximum node
-    private Node parent;
-    private int height;
 
     // Implemented by Jarren
     private void leftRoation(Node x){
@@ -47,15 +45,15 @@ public class Tree {
         y.right = x;
         x.parent = y;
     }
-
     // right and left rotation are necessary to keep the tree balanced
 
+    // Implemented by Jarren
     public Tree(){
         this.root = null;
         this.maxNode = null;
-        this.height = 0;
     }
 
+    // Implemented by Dmitry
     public void Insert(Saying key) {
         Node newNode = new Node(key, true); // new nodes are red by default
         if (root == null) {
@@ -84,6 +82,7 @@ public class Tree {
         fixInsert(newNode);
     }
 
+    // Implemented by Dmitry
     private void fixInsert(Node k) {
         // Fixing the tree after insertion to maintain Red-Black properties
         Node u;
@@ -127,10 +126,13 @@ public class Tree {
         }
         root.red = false;
     }
+
+    // Implemented by Dmitry
     public void printTree() {
         printInOrder(root);
     }
 
+    // Implemented by Dmitry
     private void printInOrder(Node node) {
         if (node != null) {
             printInOrder(node.left);
@@ -139,6 +141,7 @@ public class Tree {
         }
     }
 
+    // Implemented by Dmitry
     public boolean Member(Saying saying){
         Node current = root;
         while (current != null) {
@@ -154,13 +157,17 @@ public class Tree {
         return false;
     }
 
+    // Implemented by Dmitry
     public Saying First(){
         return root != null ? root.key : null;
     }
+
+    // Implemented by Dmitry
     public Saying Last(){
         return maxNode != null ? maxNode.key : null;
     }
 
+    // Implemented by Dmitry
     public Saying Predecessor(Saying saying){
         Node current = root;
         Node predecessor = null;
@@ -184,6 +191,7 @@ public class Tree {
         return predecessor != null ? predecessor.key : null;
     }
 
+    // Implemented by Dmitry
     public Saying Successor(Saying saying){
         Node current = root;
         Node successor = null;
