@@ -205,25 +205,30 @@ public class Tree {
         return successor != null ? successor.key : null;
     }
 
-    public void inOrderHelp(Node node, ArrayList<String> sayings){
+    public void inOrderHelp(Node node, ArrayList<Saying> sayings){
         if(node == null){
             return;
         }
         inOrderHelp(node.left, sayings);
-        sayings.add(node.key.getSaying());
+        sayings.add(node.key);
         inOrderHelp(node.right, sayings);
     }
 
-    public ArrayList<String> inOrder(Node node){
-        ArrayList<String> sayings = new ArrayList<String>();
+    public ArrayList<Saying> inOrder(Node node){
+        ArrayList<Saying> sayings = new ArrayList<Saying>();
         inOrderHelp(node, sayings);
         return sayings;
     }
 
-    public ArrayList<String> meHua(String saying) {
-        ArrayList<String> sayings = inOrder(this.root);
-        sayings.removeIf(s -> !s.contains(saying));
+    public ArrayList<Saying> MeHua(String word) {
+        ArrayList<Saying> sayings = inOrder(this.root);
+        sayings.removeIf(s -> !s.getSaying().contains(word));
         return sayings;
     }
     
+    public ArrayList<Saying> WithWord(String word){
+        ArrayList<Saying> sayings = inOrder(this.root);
+        sayings.removeIf(s -> !s.getEnglishTranslation().contains(word));
+        return sayings;
+    }
 }
