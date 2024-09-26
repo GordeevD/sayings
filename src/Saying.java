@@ -1,3 +1,25 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  Saying.java
+ *
+ *    Description:  Implementation of Saying object, that contains the saying, the 
+ *                  description of the saying, the english translation, and the english
+ *                  meaning of the saying.
+ *
+ *         Author:  Jarren Seson, Dmitry Gordeev
+ *
+ * =====================================================================================
+ *
+ *   Methods:
+ *   1. leftRoation (Node x)    
+ *   2. rightRotation (Node x)
+ *   3. meHua (String saying)
+ *   4. withWord (String saying)
+ *
+ * =====================================================================================
+ */
+
 public class Saying{
     private String saying;
     private String sayingDescription;
