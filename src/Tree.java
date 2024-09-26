@@ -45,7 +45,7 @@ public class Tree {
         y.right = x;
         x.parent = y;
     }
-    // right and left rotation are necessary to keep the tree balanced
+    // right and left rotation are necessary to keep the tree balanced with each side having the same height
 
     // Implemented by Jarren
     public Tree(){
