@@ -1,3 +1,26 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  Tree.java
+ *
+ *    Description:  Implementation of a Red-Black Tree in Java. A Red-Black Tree is a
+ *                  self-balancing binary search tree, ensuring that operations like 
+ *                  insertion, deletion, and search can be performed in O(log n) time.
+ *
+ *         Author:  Jarren Seson, Dmitry Gordeev
+ *
+ * =====================================================================================
+ *
+ *   Methods:
+ *   1. leftRoation (Node x)
+ *   2. rightRotation (Node x)
+ *   3. meHua (String saying)
+ *   4. withWord (String saying)
+ *
+ * =====================================================================================
+ */
+
+
 import java.util.ArrayList;
 
 public class Tree {
@@ -6,7 +29,23 @@ public class Tree {
     public Node root;
     private Node maxNode; // Reference to the maximum node
 
-    // Implemented by Jarren
+    /**
+    * =====================================================================================
+    * Method Name: leftRotation
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Moves subtree from the left to the right.
+    * 
+    * Parameters:
+    *    @param x - Root node of the tree
+    * 
+    * Returns:
+    *    @return - void
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     private void leftRoation(Node x){
         Node y = x.right;
         x.right = y.left;
@@ -27,7 +66,23 @@ public class Tree {
         x.parent = y;
     }
     
-    // Implemented by Jarren
+    /**
+    * =====================================================================================
+    * Method Name: rightRotation
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Moves subtree from the right to the left.
+    * 
+    * Parameters:
+    *    @param x - Root node of the tree
+    * 
+    * Returns:
+    *    @return - void
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     private void rightRotation(Node x) {
         Node y = x.left;
         x.left = y.right;
@@ -45,9 +100,24 @@ public class Tree {
         y.right = x;
         x.parent = y;
     }
-    // right and left rotation are necessary to keep the tree balanced with each side having the same height
 
-    // Implemented by Jarren
+    /**
+    * =====================================================================================
+    * Method Name: Tree
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Constructor for Tree object.
+    * 
+    * Parameters:
+    *    N/A
+    * 
+    * Returns:
+    *    N/A
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     public Tree(){
         this.root = null;
         this.maxNode = null;
@@ -215,7 +285,24 @@ public class Tree {
         return successor != null ? successor.key : null;
     }
 
-    // Implemented by Jarren 
+    /**
+    * =====================================================================================
+    * Method Name: inOrderHelp
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Recursively traverses through a tree and adds each node to an array list.
+    * 
+    * Parameters:
+    *    @param node - Root node of the tree
+    *    @param sayings - Array list of Saying objects
+    * 
+    * Returns:
+    *    @return - void
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     public void inOrderHelp(Node node, ArrayList<Saying> sayings){
         if(node == null){
             return;
@@ -224,23 +311,76 @@ public class Tree {
         sayings.add(node.key);
         inOrderHelp(node.right, sayings);
     }
+    
 
-    // Implemented by Jarren
+    /**
+    * =====================================================================================
+    * Method Name: inOrder
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Uses the inOrderHelp method to return the given array list.
+    * 
+    * Parameters:
+    *    @param node - Root node of the tree
+    * 
+    * Returns:
+    *    @return - Array list of sayings in a tree
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     public ArrayList<Saying> inOrder(Node node){
         ArrayList<Saying> sayings = new ArrayList<Saying>();
         inOrderHelp(node, sayings);
         return sayings;
     }
 
-    // Implemented by Jarren 
-    public ArrayList<Saying> MeHua(String word) {
+    /**
+    * =====================================================================================
+    * Method Name: meHua
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Calls the inOrderHelp method and filters the array based on the given Hawaiian
+    *    word.
+    * 
+    * Parameters:
+    *    @param word - Word to be searched for
+    * 
+    * Returns:
+    *    @return - Array list of Saying objects that contain the given Hawaiian word in the
+    *              saying property of the object
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
+    public ArrayList<Saying> meHua(String word) {
         ArrayList<Saying> sayings = inOrder(this.root);
         sayings.removeIf(s -> !s.getSaying().contains(word));
         return sayings;
     }
     
-    // Implemented by Jarren
-    public ArrayList<Saying> WithWord(String word){
+    /**
+    * =====================================================================================
+    * Method Name: withWord
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Calls the inOrderHelp method and filters the array based on the given English
+    *    word.
+    * 
+    * Parameters:
+    *    @param word - Word to be searched for
+    * 
+    * Returns:
+    *    @return - Array list of Saying objects that contain the given English word in the 
+    *              English translation property of the object
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
+    public ArrayList<Saying> withWord(String word){
         ArrayList<Saying> sayings = inOrder(this.root);
         sayings.removeIf(s -> !s.getEnglishTranslation().contains(word));
         return sayings;
