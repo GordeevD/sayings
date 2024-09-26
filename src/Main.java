@@ -1,4 +1,4 @@
-public class Main {
+ÿşpublic class Main {
     public static void main(String[] args) {
         // Hana (working/task)
         Saying saying1 = new Saying("E kaupÄ“ aku nÅ i ka hoe a kÅ mai", "","Put forward the paddle and draw it back", "Go on with the task that is started and finish it.");
