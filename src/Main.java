@@ -80,43 +80,51 @@ public class Main {
         tree.printTree();
 
         // Test Member()
+        System.out.println("<------ testing Member() ------>");
         System.out.println(tree.Member(new Saying("E kaupē aku nō i ka hoe a kō mai")));
         System.out.println(tree.Member(new Saying("1E kaupē aku nō i ka hoe a kō mai")));
         System.out.println(tree.Member(new Saying("")));
         System.out.println(tree.Member(new Saying("Hoʻokahi nō lā o ka malihini")));
 
         // Test First()
+        System.out.println("<------ testing First() ------>");
         System.out.println(tree.First());
 
         // Test Last()
+        System.out.println("<------ testing Last() ------>");
         System.out.println(tree.Last());
 
         // Test Predecessor()
+        System.out.println("<------ testing Predecessor() ------>");
         System.out.println(tree.Predecessor(new Saying("E kaupē aku nō i ka hoe a kō mai")));
         System.out.println(tree.Predecessor(new Saying("Hoʻokahi nō lā o ka malihini")));
 
         // Test Successor()
+        System.out.println("<------ testing Successor() ------>");
         System.out.println(tree.Successor(new Saying("E kaupē aku nō i ka hoe a kō mai")));
         System.out.println(tree.Successor(new Saying("Hoʻokahi nō lā o ka malihini")));
 
         // Test Insert
+        System.out.println("<------ testing Insert() ------>");
         Saying saying33 = new Saying("ʻIke i ke au nui me ke au iki", "","Knows the big currents and the little currents", "Is very well versed.");
         tree.Insert(saying33);
         tree.printTree();
 
         // Test MeHua
-        System.out.println("<------ testing MeHua ------>");
+        System.out.println("<------ testing MeHua() ------>");
         System.out.println(tree.meHua("o"));
+        System.out.println(tree.meHua("mai"));
+        System.out.println(tree.meHua("aku"));
 
         //Test WithWord
-        System.out.println("<------ testing WithWord ------>");
+        System.out.println("<------ testing WithWord() ------>");
         System.out.println(saying1.getSaying() + ": " +saying1.getEnglishTranslation());
         System.out.println(saying2.getSaying() + ": " +saying2.getEnglishTranslation());
         System.out.println(saying3.getSaying() + ": " +saying3.getEnglishTranslation());
-        System.out.println(saying4.getSaying() + ": " +saying4.getEnglishTranslation());
-        System.out.println(saying5.getSaying() + ": " +saying5.getEnglishTranslation());
+
         System.out.println(saying33.getSaying() + ": " +saying33.getEnglishTranslation());
 
         System.out.println(tree.withWord("stranger"));
+        System.out.println(tree.withWord("paddle"));
+        }
     }
-}
