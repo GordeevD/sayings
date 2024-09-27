@@ -126,6 +126,19 @@ public class Saying{
         return this.englishMeaning;
     }
 
+    /**
+     * =====================================================================================
+     * =====================================================================================
+     * Method Name: toString
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Returns the string representation of the Saying object, instead of object name.
+     * Returns:
+     *    Returns the string representation of the Saying object, which is the saying itself.
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+     * =====================================================================================
+     */
     // Implemented by Dmitry
     @Override
     public String toString() {
