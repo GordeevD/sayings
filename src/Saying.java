@@ -105,7 +105,23 @@ public class Saying{
         return this.englishTranslation;
     }
 
-    // Implemented by Jarren 
+    /**
+    * =====================================================================================
+    * Method Name: getEnglishMeaning
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Returns english meaning property of Saying object
+    * 
+    * Parameters:
+    *    N/A
+    * 
+    * Returns:
+    *    @return - English meaning property of Saying object
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     public String getEnglishMeaning(){
         return this.englishMeaning;
     }
