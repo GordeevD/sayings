@@ -26,7 +26,26 @@ public class Saying{
     private String englishTranslation;
     private String englishMeaning;
 
-    // Implemented by Jarren
+    /**
+    * =====================================================================================
+    * Method Name: Saying
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Constructor for Saying object
+    * 
+    * Parameters:
+    *    @param saying - Hawaiian version of saying
+    *    @param sayingDescription - English description of saying
+    *    @param englishTranslation - English translation of saying
+    *    @param englishMeaning - English meaning of saying
+    * 
+    * Returns:
+    *    N/A
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     public Saying(String saying, String sayingDescription, String englishTranslation, String englishMeaning){
         this.saying = saying;
         this.sayingDescription = sayingDescription;
@@ -34,12 +53,28 @@ public class Saying{
         this.englishMeaning = englishMeaning;
     }
 
-    // Implemented by Jarren 
+    // Implemented by Dmitry 
     public Saying(String saying) {
         this(saying, null, null, null);
     }
    
-    // Implemented by Jarren
+    /**
+    * =====================================================================================
+    * Method Name: getSaying
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Returns saying property of Saying object
+    * 
+    * Parameters:
+    *    N/A
+    * 
+    * Returns:
+    *    @return - Saying property of Saying object
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     public String getSaying(){
         return this.saying;
     }
@@ -49,12 +84,44 @@ public class Saying{
         return this.sayingDescription;
     }
 
-    // Implemented by Jarren
+    /**
+    * =====================================================================================
+    * Method Name: getEnglishTranslation
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Returns english translation property of Saying object
+    * 
+    * Parameters:
+    *    N/A
+    * 
+    * Returns:
+    *    @return - English translation property of Saying object
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     public String getEnglishTranslation(){
         return this.englishTranslation;
     }
 
-    // Implemented by Jarren 
+    /**
+    * =====================================================================================
+    * Method Name: getEnglishMeaning
+    * -------------------------------------------------------------------------------------
+    * Description: 
+    *    Returns english meaning property of Saying object
+    * 
+    * Parameters:
+    *    N/A
+    * 
+    * Returns:
+    *    @return - English meaning property of Saying object
+    * 
+    * -------------------------------------------------------------------------------------
+    * Author:  Jarren Seson
+    * =====================================================================================
+    */
     public String getEnglishMeaning(){
         return this.englishMeaning;
     }
