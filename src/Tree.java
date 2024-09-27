@@ -314,7 +314,14 @@ public class Tree {
      * =====================================================================================
      */
     public Saying First(){
-        return root != null ? root.key : null;
+        if (root == null) {
+            return null;
+        }
+        Node current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current.key;
     }
     /**
      * =====================================================================================
