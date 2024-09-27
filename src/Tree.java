@@ -16,10 +16,21 @@
  *   2. rightRotation (Node x)
  *   3. meHua (String saying)
  *   4. withWord (String saying)
+ *   5. inOrderHelp (Node node, ArrayList<Saying> sayings)
+ *   6. inOrder (Node node)
+ *   7. Insert (Saying key)
+ *   8. fixInsert (Node k)
+ *   9. printTree ()
+ *   10. printInOrder (Node node)
+ *   11. Member (Saying saying)
+ *   12. First ()
+ *   13. Last ()
+ *   14. Predecessor (Saying saying)
+ *   15. Successor (Saying saying)
+ *   16. withWord (String word)
  *
  * =====================================================================================
  */
-
 
 import java.util.ArrayList;
 
@@ -123,7 +134,19 @@ public class Tree {
         this.maxNode = null;
     }
 
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: Insert
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Inserts a new Saying into the Red-Black Tree. This method ensures that the tree
+     *    remains balanced after the insertion by calling the fixInsert method.
+     * Parameters:
+     *    @param key - The Saying object to be inserted into the tree.
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+     * =====================================================================================
+     */
     public void Insert(Saying key) {
         Node newNode = new Node(key, true); // new nodes are red by default
         if (root == null) {
@@ -152,7 +175,20 @@ public class Tree {
         fixInsert(newNode);
     }
 
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: fixInsert
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Fixes the Red-Black Tree after an insertion to ensure that it maintains its
+     *    properties. This method performs necessary rotations and recoloring to balance
+     *    the tree.
+     * Parameters:
+     *    @param k - The newly inserted node that may violate Red-Black Tree properties.
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+     * =====================================================================================
+     */
     private void fixInsert(Node k) {
         // Fixing the tree after insertion to maintain Red-Black properties
         Node u;
@@ -197,12 +233,35 @@ public class Tree {
         root.red = false;
     }
 
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: printTree
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Prints the Red-Black Tree in an in-order traversal. This method is a public
+     *    interface to the private printInOrder method.
+     * Parameters:
+     *    N/A
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+     * =====================================================================================
+     */
     public void printTree() {
         printInOrder(root);
     }
 
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: printInOrder
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Recursively prints the nodes of the Red-Black Tree in an in-order traversal.
+     * Parameters:
+     *    @param node - The current node in the traversal.
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+     * =====================================================================================
+     */
     private void printInOrder(Node node) {
         if (node != null) {
             printInOrder(node.left);
@@ -211,7 +270,21 @@ public class Tree {
         }
     }
 
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: Member
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Checks if a given Saying is a member of the Red-Black Tree. This method traverses
+     *    the tree to find the node with the specified key.
+     * Parameters:
+     *    @param saying - The Saying object to be checked for membership in the tree.
+     * Returns:
+     *    @return - boolean - Returns true if the Saying is found in the tree, otherwise false.
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+     * =====================================================================================
+     */
     public boolean Member(Saying saying){
         Node current = root;
         while (current != null) {
@@ -227,17 +300,53 @@ public class Tree {
         return false;
     }
 
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: First
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Returns the first (smallest) Saying in the Red-Black Tree. This method assumes
+     *    that the tree is not empty.
+     * Returns:
+     *    @return - Saying - The first (smallest) Saying in the tree, or null if the tree is empty.
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+     * =====================================================================================
+     */
     public Saying First(){
         return root != null ? root.key : null;
     }
-
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: Last
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Returns the last (largest) Saying in the Red-Black Tree. This method assumes
+     *    that the tree is not empty.
+     * Returns:
+     *    @return - Saying - The last (largest) Saying in the tree, or null if the tree is empty.
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+    */
     public Saying Last(){
         return maxNode != null ? maxNode.key : null;
     }
 
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: Predecessor
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Finds the predecessor of a given Saying in the Red-Black Tree. The predecessor is
+     *    the node with the largest key that is smaller than the given key.
+     * Parameters:
+     *    @param saying - The Saying object for which the predecessor is to be found.
+     * Returns:
+     *    @return - Saying - The predecessor of the given Saying, or null if no predecessor exists.
+     * -------------------------------------------------------------------------------------
+     * Author:  Dmitry Gordeev
+     * =====================================================================================
+     */
     public Saying Predecessor(Saying saying){
         Node current = root;
         Node predecessor = null;
@@ -260,8 +369,21 @@ public class Tree {
         }
         return predecessor != null ? predecessor.key : null;
     }
-
-    // Implemented by Dmitry
+    /**
+     * =====================================================================================
+     * Method Name: Successor
+     * -------------------------------------------------------------------------------------
+     * Description:
+     *    Finds the successor of a given Saying in the Red-Black Tree. The successor is
+     *    the node with the smallest key that is larger than the given key.
+     * Parameters:
+     *    @param saying - The Saying object for which the successor is to be found.
+     * Returns:
+     *    @return - Saying - The successor of the given Saying, or null if no successor exists.
+     * -------------------------------------------------------------------------------------
+     *      Author:  Dmitry Gordeev
+     * =====================================================================================
+    */
     public Saying Successor(Saying saying){
         Node current = root;
         Node successor = null;

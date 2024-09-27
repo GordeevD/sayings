@@ -1,3 +1,15 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  Main.java
+ *
+ *    Description:  Driver class for the Hawaiian Sayings project.
+ *                  This class will test the functionality of the Tree class.
+ *
+ *         Author:  Jarren Seson, Dmitry Gordeev
+ *
+ * =====================================================================================
+ */
 public class Main {
     public static void main(String[] args) {
         // Hana (working/task)
